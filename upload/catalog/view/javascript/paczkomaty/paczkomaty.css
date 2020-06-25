@@ -1,0 +1,148 @@
+/* 
+    Created on : 2019-01-08, 15:37:43
+    Author     : patryk@redicon.pl
+*/
+/*paczkomat*/
+.paczkomat-adres{
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.paczkomat-change{
+    cursor:pointer;
+}
+.paczkomat-box {
+    background: #fc0;
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.paczkomat-box .form-control {
+    width:100%;
+    height: 56px;
+    text-transform: capitalize;
+}
+
+.paczkomat-box-background {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.paczkomat-box-background::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5882352941176471);
+    z-index: -1;
+}
+
+.paczkomat-box .capital {
+    text-transform: capitalize;
+}
+
+.paczkomat-box #map {
+    width: 100%;
+    height: calc(100% - 100px);
+    padding: 15px;
+}
+
+.img-box-inpost img {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+}
+
+.img-box-inpost {
+    padding: 18px;
+}
+
+.btn-paczkomat {
+    height: 56px;
+    width: 56px;
+}
+
+.paczkomat-box .navbar-inverse {
+    min-height: 100px;
+    background: #000;
+}
+
+.search-box-inpost {
+    padding: 20px 15px;
+}
+
+.input-search {
+    border-right: 0px;
+}
+
+.select-search {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 0px;
+}
+
+#search .btn-lg {
+    background: #fff;
+    color: #ea261a;
+}
+
+#search .input-group-btn {
+    width: auto;
+}
+
+.inpost-close {
+    position: absolute;
+    right: 0;
+    z-index: 99999999;
+    top: 0;
+    line-height: 9px;
+}
+.inpost-close .fa {
+    font-size: 20px;
+}
+.col{
+    position: relative;
+    float: left;
+    width:100%;
+    box-sizing: border-box;
+}
+.col3{
+    width:25%;
+}
+.col6{
+    width:50%;
+}
+.col9{
+    width:75%;
+}
+
+@media (max-width: 767px) {
+    .col3,.col6,.col9{
+        width:100%;
+    } 
+    .paczkomat-box {
+        width: 95%;
+        height: 95%;
+    }
+    .paczkomat-box .input-group-btn {
+        min-width: 100%;
+    }
+    .img-box-inpost {
+        padding: 25px 0px 10px 10px;
+    }
+    .search-box-inpost {
+        padding: 0px 15px 10px 15px;
+    }
+    .paczkomat-box .form-control {
+        height: 36px;
+    }
+}
+/*paczkomat*/

@@ -1,0 +1,81 @@
+
+<script type="text/javascript" src="catalog/view/javascript/paczkomaty/paczkomaty.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/paczkomaty/leaflet.js"></script>
+<link href="catalog/view/javascript/paczkomaty/paczkomaty.css" rel="stylesheet" media="screen">
+<link href="catalog/view/javascript/paczkomaty/leaflet.css" rel="stylesheet" media="screen">
+
+<div class="paczkomat-box-background">
+    <div class="paczkomat-box">
+        <div class="col navbar-inverse"> 
+            <a onclick="document.getElementsByClassName('paczkomat-box-background')[0].outerHTML = '';" class="pull-right inpost-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <div class="col col3 img-box-inpost">
+                <img src="catalog/view/javascript/paczkomaty/inpost.png" alt="">
+            </div>
+            <div class="col col9">
+
+            <div class="col col6 search-box-inpost">
+                    <input 
+                    name="province" 
+                    type="text" 
+                    onkeyup="filterList('#province-list ul',this)" 
+                    onfocus="listValue('#province-list','block')"
+                    onblur="listValue('#province-list','none')"
+                    class="form-control"/>
+                    <div id="province-list">
+                        <ul>
+                            {%for province in provinces%}
+                                    <li data-filter="{{province.province}}" onclick="selectProvince('{{province.province}}')">{{province.province}}</li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col6 search-box-inpost">
+                    <input 
+                    name="citys" 
+                    type="text" 
+                    onkeyup="filterList('#citys-list ul',this)" 
+                    onfocus="listValue('#citys-list','block')"
+                    onblur="listValue('#citys-list','none')"class="form-control"/>
+                    <div id="citys-list">
+                        <ul>
+                            {%for city in citys %}
+                                <li data-filter="{{city.city}}"  onclick="selectCity('{{city.city}}')">{{city.city}}</li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>    
+
+                
+            </div>
+        </div>        
+        <div id="map"><h3>Wybierz województwo, miasto i Paczkomat</h3></div>
+    </div>
+</div>
+<style>
+    /* input[name="province"]:focus + #province-list,
+    input[name="citys"]:focus + #citys-list{
+        display:block;
+    } */
+    #province-list,#citys-list{
+        position: absolute;
+        background: #fff;
+        width: calc(100% - 30px);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+        max-height: 200px;
+        overflow: auto;
+        z-index: 999;
+        display: none;
+    }
+    #province-list ul li { text-transform: capitalize;}
+    #province-list ul , #citys-list ul {
+        list-style:none;
+        padding-left:5px;
+       
+    }
+
+    #province-list ul>li:hover,
+    #citys-list ul>li:hover{
+        cursor: pointer;
+        font-weight: 600;
+    }
+</style>

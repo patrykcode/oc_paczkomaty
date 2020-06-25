@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <code>00001</code>
+    <name>Paczkomaty</name>
+    <version>1.0</version>
+    <author>Patryk Pawlicki</author>
+    <link>krspawlicki@gmail.com</link>
+    <description>Moduł paczkomatów</description>
+    <file path="catalog/controller/common/header.php">
+        <operation>
+            <search><![CDATA[ $data['analytics'] = array(); ]]></search>
+            <add position="after"><![CDATA[
+                /**paczkomaty */
+                $this->document->addScript('catalog/view/javascript/paczkomaty/paczkomaty_init.js');
+                /**paczkomaty */
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/checkout/shipping_method.twig">
+        <operation>
+            <search><![CDATA[<div class="radio">]]></search>
+            <add position="replace"><![CDATA[<div class="radio"  data-quote="{{quote.code}}" data-cost="{{quote.cost}}">]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/checkout/shipping_method.twig">
+        <operation>
+            <search><![CDATA[    {{ quote.title }} - {{ quote.text }}</label>]]></search>
+            <add position="replace"><![CDATA[ <span>{{ quote.title }} - {{ quote.text }}</span></label>]]></add>
+        </operation>
+    </file>
+</modification>
